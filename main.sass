@@ -1,0 +1,661 @@
+@import "bourbon/bourbon"
+@import "variable"
+
+.navbar-toggle .icon-bar
+  display: block
+  margin: 5px
+  width: 22px
+  height: 2px
+  background-color: #cccccc
+  border-radius: 1px
+
+.navbar-toggle
+  position: absolute
+  top: 0
+  display: none
+  right: 0
+  padding: 9px 10px
+  margin-right: 15px
+  margin-top: 8px
+  margin-bottom: 8px
+  background-color: transparent
+  background-image: none
+  border: 1px solid transparent
+  border-radius: 4px
+
+@function pxToRem($px)
+  @return #{$px / 10}rem
+
+@mixin custom-button
+  background-color: transparent
+  font-size: 15px
+  font-family: "Open Sans"
+  color: rgb(255, 255, 255)
+  line-height: 1.2
+  padding: 13px 30px
+  -webkit-transition: background-color .5s
+  -moz-transition: background-color .5s
+  -ms-transition: background-color .5s
+  -o-transition: background-color .5s
+  transition: background-color .5s
+  border: 1px solid #fff
+  border-radius: 0
+  &:hover
+    background-color: #ff8b38
+
+@mixin custom-line
+  &:after
+    content: ' '
+    position: absolute
+    top: 130.5px
+    left: 0px
+    width: 70px
+    height: 4px
+    background-color: #fff
+
+@mixin preload-line
+  position: relative
+  &:after
+    content: ' '
+    position: absolute
+    bottom: -34px
+    left: 0
+    width: 70px
+    height: 4px
+    background-color: #ff8b38
+
+.main_padding
+  padding: $sectionPadding
+
+.img-circle
+  border: 2px solid #ff8b38
+  color: #ff8b38
+  border-radius: 50%
+
+.line-preload
+  @include preload-line
+
+html.js .loader
+  background: none repeat scroll 0 0 #ffffff
+  bottom: 0
+  height: 100%
+  left: 0
+  position: fixed
+  right: 0
+  top: 0
+  width: 100%
+  z-index: 9999
+
+  .loader_inner
+    background-image: url("../img/preloader.gif")
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center center
+    background-color: #fff
+    height: 60px
+    width: 60px
+    margin-top: -$defaultMargin
+    margin-left: -$defaultMargin
+    left: 50%
+    top: 50%
+    position: absolute
+
+body
+  font-family: "RobotoRegular", sans-serif
+  font-weight: normal
+  font-size: 14px
+  min-width: 320px
+  position: relative
+  line-height: 1.6
+  -webkit-font-smoothing: antialiased
+  overflow-x: hidden
+
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+  color: red
+
+body input:required:valid,
+body textarea:required:valid
+  color: green
+
+.hidden
+  display: none
+
+.flex-nav
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+
+.header
+  min-height: 710px
+  background: url(../img/bg_header.jpg)
+
+  nav.header__nav
+    position: relative
+    background-color: #000000
+
+    *:after
+      display: none
+
+    *:before
+      display: none
+
+    .header__logo
+      margin: 10px 0
+
+      img
+        padding: 10px 0
+
+    .header__menu
+      text-align: right
+
+      .nav
+        .header__nav__item
+          padding: 10px
+          display: inline-block
+          font-size: 14px
+          font-family: "Open Sans"
+          color: rgba(255, 255, 255, 0.69)
+          line-height: 1.2
+          list-style: none
+
+          a
+            text-decoration: none
+            color: #ffffff
+
+            &:hover
+              color: #c4c4c4
+
+.header__promotion
+  font-family: "Open Sans"
+  margin-top: 110px
+
+  .promotion
+    color: #fff
+
+    .promotion__title
+      margin: 35px 0 85px 0
+      position: relative
+
+      &:after
+        content: ' '
+        position: absolute
+        top: 130.5px
+        left: 0px
+        width: 70px
+        height: 4px
+        background-color: #fff
+
+    .promotion__description
+      margin-bottom: 50px
+      color: #6f707b
+
+    .promotion__btn
+      button
+        @include custom-button
+
+  .form-promotion
+    background-color: #fff
+    line-height: 3.8
+    padding: 0px
+    text-align: center
+    max-width: pxToRem(360)
+
+    .form-promotion__header
+      background-color: #f5f5f5
+
+      h3
+        margin: 0px
+        padding: pxToRem(20) 0
+
+      span
+        color: #ff8b38
+
+
+    form
+      margin-top: 20px
+
+      input
+        max-width: 79%
+        border-width: 0px
+        outline-color: rgba(0, 0, 0, 0)
+        border-bottom-width: 3px
+        margin: auto
+        margin-top: pxToRem(30)
+        padding: pxToRem(10) 0
+        box-shadow: none
+
+        &:focus
+          border-color: #a59393
+
+      button
+        color: #fff
+        margin-top: 50px
+        background-color: #ff8b38
+        outline-color: rgba(0, 0, 0, 0)
+        border-width: 0px
+        width: 100%
+        padding: pxToRem(20) 0
+
+.brand-bar
+  background-color: rgb(255, 255, 255)
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.38)
+  padding: 20px
+  min-height: 105px
+  border-bottom: 2px solid #b7b7b7
+
+  .social-media
+    h3
+      font-weight: bold
+      margin: 0
+      font-size: 20px
+      font-family: "Open Sans"
+      color: rgb(51, 51, 51)
+
+    p
+      line-height: 1.429
+      color: #86878b
+
+  .social-icons
+    i
+      margin-right: 60px
+      color: #cccccc
+      font-size: 48px
+
+      &:last-child
+        margin-right: 0
+
+footer
+  position: relative
+  padding: 20px 0 14px 0
+  background-color: #000
+  color: #fff
+  clear: both
+  text-align: center
+
+  .footer__icons
+    i
+      margin-right: $defaultMargin
+
+      &:last-child
+        margin-right: 0
+
+  .footer__copyrights
+    p
+      margin-top: 11px
+      color: rgba(255, 255, 255, 0.502)
+      font-size: 12px
+      font-family: "Open Sans"
+
+.sub-list
+  padding: $sectionPadding
+
+  .sub-list__section
+    img
+      display: block
+      max-width: 100%
+      height: auto
+      box-shadow: 0 15px 25px -5px #000
+
+  .sub-list__article
+
+    h4
+      font-size: 20px
+      position: relative
+      font-weight: bold
+      color: #212121
+      margin-bottom: 70px
+
+    p
+      color: #86878b
+
+    i
+      border: 2px solid #ff8b38
+      color: #ff8b38
+      font-size: 19px
+      border-radius: 50%
+      padding: 10px
+      vertical-align: top
+      height: 50%
+
+      &:hover
+        background-color: #00ff7e
+
+    .sub-list__article__text
+      margin: 70px 0 50px 0
+
+    h6
+      font-weight: bold
+      color: #212121
+      margin-bottom: 15px
+
+    ul
+
+
+      li:not(:last-child)
+        margin-bottom: 45px
+
+      li
+        display: flex
+
+
+    .list-item
+      display: inline-block
+      margin-left: 30px
+//margin-left: $defaultMargin
+
+.picture-section
+  background-color: #f5f5f5
+
+  h4
+    font-size: 20px
+    position: relative
+    font-weight: bold
+    color: #212121
+    margin-bottom: 70px
+    @include preload-line
+
+  p
+    color: #86878b
+
+  p:last-child
+    margin-top: 30px
+
+  img
+    box-shadow: 0 15px 25px -5px #000
+
+
+.why-awesome, .design
+  padding: $sectionPadding
+  padding-bottom: 107px
+  text-align: center
+
+  h3
+    font-size: 36px
+    padding-bottom: $defaultMargin
+    position: relative
+    font-family: "Raleway"
+    color: rgb(33, 33, 33)
+    line-height: 1.194
+    text-align: center
+
+    &:after
+      bottom: 0
+      left: 50%
+      -webkit-transform: translateX(-50%)
+      -moz-transform: translateX(-50%)
+      -ms-transform: translateX(-50%)
+      -o-transform: translateX(-50%)
+      transform: translateX(-50%)
+
+  p
+    margin-top: $defaultMargin
+    margin-bottom: $defaultMargin
+    color: rgb(134, 135, 139)
+
+  .why-awesome-box
+    i
+      width: 70px
+      -webkit-transition: all .5s
+      -moz-transition: all .5s
+      -ms-transition: all .5s
+      -o-transition: all .5s
+      transition: all .5s
+      height: 70px
+      vertical-align: middle
+      line-height: 70px
+
+      &:hover
+        -webkit-transform: rotate(360deg)
+        -moz-transform: rotate(360deg)
+        -ms-transform: rotate(360deg)
+        -o-transform: rotate(360deg)
+        transform: rotate(360deg)
+        background-color: #ff8b3861
+        color: #fff
+
+    h4
+      margin-top: $defaultMargin
+      font-size: 20px
+      font-family: "Open Sans"
+      color: rgb(51, 51, 51)
+      font-weight: bold
+      line-height: 1.2
+
+    p
+      font-family: "Open Sans"
+      color: rgb(134, 135, 139)
+      line-height: 1.429
+
+
+.design-section
+  padding: 75px 0 65px 0
+  text-align: center
+  color: #fff
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bg-img.jpg')
+
+  h3
+    font-size: pxToRem(36)
+    position: relative
+    padding-bottom: 37px
+    @include custom-line
+
+    &:after
+      top: 100%
+      left: 50%
+      transform: translateX(-50%)
+
+  p
+    font-size: 16px
+    margin: 40px 0 40px 0
+
+  .btn
+    @include custom-button
+
+.price-list
+  padding: 99px 0 93px 0
+  text-align: center
+  background-color: #f5f5f5
+
+  .price-list__title
+    margin: 27px 0 81px 0
+    font-family: "Open Sans"
+    color: rgb(134, 135, 139)
+
+  h3
+    padding-bottom: 27px
+    font-size: pxToRem(36)
+    font-family: "Myriad Pro"
+    color: rgb(33, 33, 33)
+
+    &:after
+      bottom: 0
+      left: 50%
+      -webkit-transform: translateX(-50%)
+      -moz-transform: translateX(-50%)
+      -ms-transform: translateX(-50%)
+      -o-transform: translateX(-50%)
+      transform: translateX(-50%)
+
+  p
+    margin-bottom: 20px
+
+  .price-box
+    transition: all .5s
+    position: relative
+    top: 0
+
+    &:hover
+      top: -36px
+
+    .price-box__header
+      background-color: #333333
+      padding: 21px 0
+      font-size: 20px
+      font-family: "Open Sans"
+      color: rgb(255, 255, 255)
+      font-weight: bold
+      border-bottom: 2px solid #fff
+
+    .price-box__content
+      background-color: #333333
+      padding: 28px 0 22px 0
+      border-bottom: 3px solid #ff8b38
+
+      p
+        font-family: "Open Sans"
+        color: rgba(255, 255, 255, 0.502)
+
+      span.dollar
+        font-size: pxToRem(30)
+        font-family: "Raleway"
+        color: rgb(255, 255, 255)
+        font-weight: bold
+
+      span:not(.dollar)
+        font-size: pxToRem(65)
+        position: relative
+        top: -2
+        font-family: "Raleway"
+        color: rgb(255, 255, 255)
+        font-weight: bold
+
+    .price-box__footer
+      ul
+        background-color: #fff
+
+        li
+          text-transform: uppercase
+          padding: 14px 0
+          font-family: "Open Sans"
+          color: rgb(134, 135, 139)
+          border-bottom: 1px solid #f5f5f5
+          border-top: 1px solid #f5f5f5
+
+          &:last-child
+            border-bottom: none
+
+  .price-box-with-margin
+    position: relative
+    top: -36px
+
+    .price-box__content
+      border-bottom: none
+      padding-bottom: 0
+
+      .price-box__content__popular
+        padding: 12px 0
+        text-transform: uppercase
+        margin-top: 34px
+        color: #fff
+        background: #ff8b38
+        font-family: "Open Sans"
+        font-weight: bold
+
+
+.design
+  .design-form
+    .form-email
+      padding: 30px 0 30px 0
+
+    input
+      border-width: 0px
+      max-width: pxToRem(530)
+      border-bottom-width: 1px
+      outline: none
+      width: 100%
+
+      &:focus
+        border-color: #a59393
+
+  .design-textarea
+    textarea
+      max-width: pxToRem(530)
+      max-height: 135px
+      border-width: 0
+      border-bottom-width: 1px
+      border-bottom-color: #eeeeee
+      resize: none
+      width: 100%
+
+      &:focus
+        border-color: #a59393
+        outline: none
+
+  .button-design
+    margin: 43px 0 84px 0
+    padding: 11px 26px
+    background-color: #ff8b38
+    outline: none
+    border-width: 0
+    color: #fff
+    transition: all .7s
+
+    &:hover
+      background-color: #e68f45bf
+      color: #000
+      box-shadow: 0px 0px 21px 10px #ff8b38
+
+.features
+  padding: 140px 0 115px 0
+  background-color: #f5f5f5
+
+  .features__tabs
+    li
+      background-color: #333333
+      -webkit-border-radius: 5px
+      -moz-border-radius: 5px
+      border-radius: 5px
+      width: pxToRem(110)
+      height: 110px
+      border: 1px solid #c7c7c7
+    
+
+    .active
+      background-color: #ff8b38
+
+    a
+      line-height: 110px
+      display: block
+      text-align: center
+      text-decoration: none
+      font-size: 15px
+      font-family: "Open Sans"
+      color: rgb(255, 255, 255)
+      font-weight: bold
+
+  .features__content
+    .features__content__tab
+      display: none
+
+    .features__content__tab.active
+      display: block
+
+      .title
+        h3
+          margin-bottom: 50px
+          font-size: pxToRem(20)
+          font-family: "Open Sans"
+          color: rgb(0, 0, 0)
+          font-weight: bold
+
+      p
+        font-family: "Open Sans"
+        color: rgb(134, 135, 139)
+        line-height: 1.429
+        margin-bottom: 30px
+
+      button
+        padding: 11px 26px
+        background-color: #ff8b38
+        outline: none
+        border: none
+        color: #fff
+        transition: all 0.7s
+.carousel
+  margin: 4rem 0
+  h2 
+    text-align: center
+    
